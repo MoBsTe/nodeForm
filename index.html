@@ -10,9 +10,15 @@
 </head>
 
 <body>
-    <form action="">
-        <div class="card">
-            <label>Выбери пиццу:</label>
+    <div class="btn_change">
+        <button class="btn">Ваши заказы </button>
+    </div>
+    <div class="constainer">
+        <div class="form_title">
+            Ваш заказ
+        </div>
+        <form action="">
+            <label>Выберете пиццу:</label>
             <select>
                 <option value="">Pizza Napoletana</option>
                 <option value="saab">Calzone</option>
@@ -25,10 +31,14 @@
                 <option value="audi">Pizza Gourmet</option>
                 <option value="audi">Margherita</option>
             </select>
+        </form>
+        <div class="result">
+            <input type="text" placeholder="0">
         </div>
-        <input class="result" type="text" placeholder="Кол-во">
-        <button class="btn">Заказать</button>
-    </form>
+        <div class="button">
+            <button class="btn">Заказать</button>
+        </div>
+    </div>
 </body>
 
 </html>
