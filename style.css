@@ -9,14 +9,7 @@ body {
     background-image: url('./thumb-1920-959369.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.constainer {
-    width: 300px;
-    height: 400px;
-    background-color: rgba(94, 90, 90, 0.7);
-    border-radius: 20px;
-    border: 2px solid gray;
+    font-family: 'Alkatra', cursive;
 }
 
 .form_title {
@@ -31,16 +24,20 @@ body {
 }
 
 form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-    /* letter-spacing: 2px; */
+    width: 300px;
+    height: 400px;
+    background-color: rgba(94, 90, 90, 0.9);
+    box-shadow: 5px 5px 5px 5px;
+    border-radius: 20px;
+    border: 2px solid gray;
+    /* display: none; */
 }
 
 form label {
     color: #fff;
     font-family: 'Alkatra', cursive;
     padding-right: 5px;
+    margin-left: 20px;
 }
 
 select {
@@ -48,11 +45,13 @@ select {
     background-color: rgba(94, 90, 90, 0.7);
     font-family: 'Alkatra', cursive;
     color: #fff;
+    cursor: pointer;
 }
 
 .result {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
     margin-bottom: 100px;
 }
 
@@ -60,9 +59,10 @@ select {
     text-align: center;
     outline: none;
     border-radius: 20px;
-    background-color: rgba(94, 90, 90, 0.7);
+    background-color: rgba(94, 90, 90, 1);
     color: #fff;
     border: none;
+    font-family: 'Alkatra', cursive;
 }
 
 .button {
@@ -79,6 +79,23 @@ select {
     color: #fff;
     transition: .3s linear;
     border: none;
+    cursor: pointer;
+}
+
+.btn2 {
+    padding: 10px 50px;
+    font-size: 18px;
+    font-family: 'Alkatra', cursive;
+    border-radius: 20px;
+    background-color: rgba(94, 90, 90, 0.7);
+    color: #fff;
+    transition: .3s linear;
+    border: none;
+    cursor: pointer;
+}
+
+.btn2:hover {
+    background-color: rgba(122, 121, 121, 0.7);
 }
 
 .btn:hover {
@@ -89,4 +106,68 @@ select {
     position: absolute;
     top: 50px;
     right: 300px;
+}
+
+.containet {
+    display: none;
+    width: 300px;
+    /* min-height: 400px; */
+    background-color: rgba(94, 90, 90, 0.9);
+    box-shadow: 5px 5px 5px 5px;
+    border-radius: 20px;
+    border: 2px solid gray;
+    position: relative;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: #fff;
+}
+
+.items {
+    /* display: flex;
+    justify-content: center; */
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #fff;
+}
+
+.button_back {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn_back {
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(94, 90, 90, 0.7);
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Alkatra', cursive;
+    font-weight: 500;
+}
+
+.active {
+    display: block;
+}
+
+.close {
+    display: none;
+}
+
+.success {
+    display: none;
+    padding: 20px 20px;
+    background-color: rgba(94, 90, 90, 0.9);
+}
+
+.success_text {
+    color: #fff;
+    font-family: 'Alkatra', cursive;
+    font-weight: 500;
+    font-size: 24px;
 }
