@@ -33,33 +33,35 @@ btn2.addEventListener('click', (e) => {
     e.preventDefault();
     const select = document.querySelector('select').value;
     const input = document.querySelector('input').value;
-    // const items = document.querySelector('.items');
-
-    // const item = document.createElement('div');
-    // item.classList.add('item');
-
-    // const p = document.createElement('p');
-    // p.textContent = select;
-
-    // кол-во заказанно
-    // const amount = document.createElement('div');
-    // if (input == 0) {
-    //     alert('sfsdfsdffsd');
-    // }
-    // amount.classList.add('amount');
-    // amount.textContent = input;
-
-    // // время заказа
-    // const date = document.createElement('div');
-    // let today = new Date();
-    // let now = today.toLocaleString();
-    // date.textContent = now;
 
 
-    // item.appendChild(p);
-    // item.appendChild(amount);
-    // item.appendChild(date);
-    // items.appendChild(item);
+    const items = document.querySelector('.items');
+
+    const item = document.createElement('div');
+    item.classList.add('item');
+
+    const p = document.createElement('p');
+    p.textContent = select;
+
+
+    const amount = document.createElement('div');
+    if (input == 0) {
+        alert('sfsdfsdffsd');
+    }
+    amount.classList.add('amount');
+    amount.textContent = input;
+
+    // время заказа
+    const date = document.createElement('div');
+    let today = new Date();
+    let now = today.toLocaleString();
+    date.textContent = now;
+
+
+    item.appendChild(p);
+    item.appendChild(amount);
+    item.appendChild(date);
+    items.appendChild(item);
 
 
 
