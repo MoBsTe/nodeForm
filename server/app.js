@@ -4,40 +4,38 @@ const path = require("path");
 const middleware = express.static(path.join(__dirname, './../public'));
 const app = express();
 app.use(middleware);
-let mysql = require('mysql');
+let mysql = require('mysql2');
 
-// let connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '123---',
-//     database: 'DB'
-// });
-
-
-// connection.connect(function (error) {
-//     if (error) throw error;
-//     console.log('Connected to the MySQL server.');
-// });
+let connection = mysql.createConnection({
+    host: '172.22.48.1',
+    user: 'Valery2',
+    password: 'Mysql123123123!',
+    database: 'pizzadb'
+});
 
 
-
-// // connection.connect(function (err) {
-// //     if (err) {
-// //         return console.error('error: ' + err.message);
-// //     }
-
-// //
-// // });
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
 
 
-// app.get("/url", (req, res, next) => {
-//     connection.query('SELECT productID, product, price FROM Products', function (error, results, fields) {
-//         if (error) throw error;
-//         console.log(results);
-//         res.send(results);
-//     });
 
-// });
+app.post("/order", (req, res, next) => {
+    let sql = "INSERT INTO pizza (amount, pizzaType) VALUES (amount, Pizza_type)";
+});
+
+
+
+app.get("/orders", (req, res, next) => {
+    connection.query('SELECT amount, pizzaType FROM pizza', function (error, results, fields) {
+        if (error) throw error;
+        console.log(results);
+        res.status(200).json({ result: amount, result: pizzaType });
+    });
+
+});
+
 
 
 const port = process.env.PORT || 3000;
