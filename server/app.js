@@ -22,7 +22,14 @@ connection.connect(function (err) {
 
 
 app.post("/order", (req, res, next) => {
-    let sql = "INSERT INTO pizza (amount, pizzaType) VALUES (amount, Pizza_type)";
+    connection.connect(function (err) {
+        if (err) throw err;
+        console.log("Connected!");
+        let sql = "INSERT INTO pizza (amount, Pizza_type) VALUES (input, select)";
+    });
+
+    // let sql = "INSERT INTO pizza (amount, pizzaType) VALUES (amount, Pizza_type)";
+
 });
 
 

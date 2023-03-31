@@ -56,21 +56,13 @@ btn2.addEventListener('click', (e) => {
     const select = document.querySelector('select').value;
     const input = document.querySelector('input').value;
 
-    console.log(select);
-    console.log(input);
-
-
-
-
-
-
-    // axios.post({
-    //     url: '/order',
-    //     data: {
-    //         Pizza_type: select,
-    //         amount: amount
-    //     }
-    // });
+    axios.post({
+        url: '/order',
+        data: {
+            pizzaType: select,
+            amount: input
+        }
+    });
 })
 
 
