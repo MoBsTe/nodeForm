@@ -53,16 +53,15 @@ btn.addEventListener('click', () => {
 
 btn2.addEventListener('click', (e) => {
     e.preventDefault();
-    const select = document.querySelector('select').value;
-    const input = document.querySelector('input').value;
-
-    axios.post({
-        url: '/order',
-        data: {
-            pizzaType: select,
-            amount: input
-        }
-    });
+    // const select = document.querySelector('select').value;
+    // const input = document.querySelector('input').value;
+    axios.post('/order', {
+        pizzaType: document.querySelector('select').value,
+        amount: document.querySelector('input').value
+    })
+        .then(function (response) {
+            console.log(response);
+        })
 })
 
 

@@ -4,7 +4,9 @@ const path = require("path");
 const middleware = express.static(path.join(__dirname, './../public'));
 const app = express();
 app.use(middleware);
-let mysql = require('mysql2');
+app.use(express.json());
+let mysql = require('mysql');
+const { response } = require("express");
 
 let connection = mysql.createConnection({
     host: '172.22.48.1',
@@ -22,14 +24,12 @@ connection.connect(function (err) {
 
 
 app.post("/order", (req, res, next) => {
-    connection.connect(function (err) {
-        if (err) throw err;
-        console.log("Connected!");
-        let sql = "INSERT INTO pizza (amount, Pizza_type) VALUES (input, select)";
-    });
-
-    // let sql = "INSERT INTO pizza (amount, pizzaType) VALUES (amount, Pizza_type)";
-
+    let post = { amount: 10, pizzaType: '1ewrewfwef' };
+    connection.query('INSERT INTO pizza SET ?', post, function (error, result, fields) {
+        if (error) throw err;
+        console.log("1 record inserted");
+        console.log(req);
+    })
 });
 
 
