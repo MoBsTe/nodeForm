@@ -28,9 +28,9 @@ app.post("/order", (req, res, next) => {
 
 
 app.get("/orders", (req, res, next) => {
-    connection.query('SELECT amount, pizzaType FROM pizza', function (error, results, fields) {
+    connection.query('SELECT pizzaType, amount FROM pizza', function (error, results, fields) {
         if (error) throw error;
-        res.status(200).json({ result: amount, result: pizzaType });
+        res.status(200).json(results);
         console.log(results);
     });
 

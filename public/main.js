@@ -15,9 +15,31 @@ btn.addEventListener('click', () => {
     axios.get('/orders')
         .then((response) => {
 
-            let jsonResponse = (response.data);
-            let amount = jsonResponse.amount;
-            let pizzaType = jsonResponse.pizzaType;
+            let jsonResponse = response.data;
+            console.log(jsonResponse);
+
+            const items = document.querySelector('.items');
+
+            for (let i = 0; i < jsonResponse.length; i++) {
+                let item = document.createElement('div');
+                item.classList.add('item');
+                const p = document.createElement('p');
+                p.innerHTML = jsonResponse[i].pizzaType;
+
+                const amount1 = document.createElement('div');
+                amount1.innerHTML = jsonResponse[i].amount;
+
+                const date = document.createElement('div');
+                let today = new Date();
+                let now = today.toLocaleString();
+                date.textContent = now;
+
+
+                item.appendChild(p);
+                item.appendChild(amount1);
+                item.appendChild(date);
+                items.appendChild(item);
+            }
 
 
         });
@@ -34,46 +56,21 @@ btn2.addEventListener('click', (e) => {
     const select = document.querySelector('select').value;
     const input = document.querySelector('input').value;
 
-
-    const items = document.querySelector('.items');
-
-    const item = document.createElement('div');
-    item.classList.add('item');
-
-    const p = document.createElement('p');
-    p.textContent = select;
-
-
-    const amount = document.createElement('div');
-    if (input == 0) {
-        alert('sfsdfsdffsd');
-    }
-    amount.classList.add('amount');
-    amount.textContent = input;
-
-    // время заказа
-    const date = document.createElement('div');
-    let today = new Date();
-    let now = today.toLocaleString();
-    date.textContent = now;
-
-
-    item.appendChild(p);
-    item.appendChild(amount);
-    item.appendChild(date);
-    items.appendChild(item);
+    console.log(select);
+    console.log(input);
 
 
 
 
 
-    axios.post({
-        url: '/order',
-        data: {
-            Pizza_type: select,
-            amount: amount
-        }
-    });
+
+    // axios.post({
+    //     url: '/order',
+    //     data: {
+    //         Pizza_type: select,
+    //         amount: amount
+    //     }
+    // });
 })
 
 
