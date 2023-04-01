@@ -29,15 +29,12 @@ btn.addEventListener('click', () => {
                 const amount1 = document.createElement('div');
                 amount1.innerHTML = jsonResponse[i].amount;
 
-                const date = document.createElement('div');
-                let today = new Date();
-                let now = today.toLocaleString();
-                date.textContent = now;
-
+                const dateTimeDiv = document.createElement('div');
+                dateTimeDiv.innerHTML = jsonResponse[i].DataAndTime;
 
                 item.appendChild(p);
                 item.appendChild(amount1);
-                item.appendChild(date);
+                item.appendChild(dateTimeDiv);
                 items.appendChild(item);
             }
 
@@ -53,8 +50,6 @@ btn.addEventListener('click', () => {
 
 btn2.addEventListener('click', (e) => {
     e.preventDefault();
-    // const select = document.querySelector('select').value;
-    // const input = document.querySelector('input').value;
     axios.post('/order', {
         pizzaType: document.querySelector('select').value,
         amount: document.querySelector('input').value

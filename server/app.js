@@ -24,30 +24,21 @@ connection.connect(function (err) {
 
 
 app.post("/order", (req, res, next) => {
-    var reqBody = req.body;
     let post = { amount: req.body.amount, pizzaType: req.body.pizzaType };
 
-    // let amount = req.body.amount;
-    // let pizzaType = req.body.pizzaType;
+    // let today = new Date();
+    // let now = today.toLocaleString();
 
     connection.query('INSERT INTO pizza SET ?', post, function (error, result, fields) {
         if (error) throw err;
         console.log("1 record inserted");
-        // console.log(req);
     })
-
-    // const sql = `INSERT INTO user (amount, pizzaType)
-    //    VALUES ('${amount}','${pizzaType}')`;
-    // connection.query(sql, (err, res) => {
-    //     if (err) throw err;
-    // })
-
 });
 
 
 
 app.get("/orders", (req, res, next) => {
-    connection.query('SELECT pizzaType, amount FROM pizza', function (error, results, fields) {
+    connection.query('SELECT pizzaType, amount, DataAndTime FROM pizza', function (error, results, fields) {
         if (error) throw error;
         res.status(200).json(results);
         console.log(results);
